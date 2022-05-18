@@ -58,8 +58,8 @@ Pixel matrix1[][cols1], Pixel matrix2[][cols2], int coord[], float alpha){
 	int l1, l2, c1, c2, lstart=0, cstart=0;
 	
 	// Ajustar aos limites da imagem original
-	if(coord[0] < 0){ cstart = -coord[0]; coord[0] = 0;}
-	if(coord[1] < 0){ lstart = -coord[1]; coord[1] = 0;}
+	if(coord[0] < 0) {cstart = -coord[0]; coord[0] = 0;}
+	if(coord[1] < 0) {lstart = -coord[1]; coord[1] = 0;}
 	if(coord[2] > cols1) cols2 = cols1 - coord[0];
 	if(coord[3] > lins1) lins2 = lins1 - coord[1];
 	
@@ -69,7 +69,7 @@ Pixel matrix1[][cols1], Pixel matrix2[][cols2], int coord[], float alpha){
 			matrix1[l1][c1].g = round(alpha * matrix2[l2][c2].g + (1 - alpha) * matrix1[l1][c1].g);
 			matrix1[l1][c1].b = round(alpha * matrix2[l2][c2].b + (1 - alpha) * matrix1[l1][c1].b);
 		}
-}
+	}
 
 int main(int argc, char* argv[]){
     int  lins1, lins2, cols1, cols2, *coord;
@@ -95,7 +95,9 @@ int main(int argc, char* argv[]){
 			f3 = fopen(argv[6], "w");
 		else
 			f3 = stdout;
-	}else{
+	}
+	
+	else {
 		f1 = stdin;
 		f3 = stdout;
 	}
